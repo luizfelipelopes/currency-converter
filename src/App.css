@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+
+  --primary: #0F172A;
+  --secondary: #1E293B;
+  --accent: #10B981;
+  --surface: #334155;
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --surface: #1E293B;
+  --surface-light: #334155;
+}
+
+.layout-preview {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+}
+
+.app-title {
+  background: linear-gradient(135deg, #10B981 0%, #3B82F6 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.app-subtitle {
+  color: var(--text-secondary);
+}
+
+.converter-card {
+  background: var(--surface-light);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.input-label {
+  color: var(--text-secondary);
+  letter-spacing: 0.5px;
+  font-family: 'Space Mono', monospace;
+}
+
+.input-field {
+  background: var(--primary);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+}
+
+.currency-select {
+  background: var(--primary);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.currency-select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+}
+
+.convert-btn {
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+}
+
+.convert-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(16, 185, 129, 0.4);
+}
