@@ -2,11 +2,15 @@ import type { MouseEventHandler } from "react";
 
 interface ButtonProps {
     title: string;
+    isLoading: boolean;
     handleClick: MouseEventHandler<HTMLButtonElement>;
 }
 
 
-export function Button({ title, handleClick }: ButtonProps) {
+export function Button({ title, isLoading, handleClick }: ButtonProps) {
+
+    const messageButton = isLoading ? 'Converting...' : title;
+
     return (
         <button className='convert-btn
             w-full
@@ -18,6 +22,6 @@ export function Button({ title, handleClick }: ButtonProps) {
             font-bold
             cursor-pointer' type='submit'
 
-            onClick={handleClick}>{title}</button>
+            onClick={handleClick}>{messageButton}</button>
     );
 }

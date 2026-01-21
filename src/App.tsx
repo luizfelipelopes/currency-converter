@@ -18,7 +18,7 @@ function App() {
   const amountRef = useRef<HTMLInputElement>(null);
   const convertRef = useRef<HTMLSelectElement>(null);
   const [convertedValue, setConvertedValue] = useState(0);
-  const [currencySymbol, setCurrencySymbol] = useState('$');
+  const [loading, setLoading] = useState(false);
 
   const convertCurrency = async ({ amount, convert }: DataProps) => {
 
@@ -39,9 +39,11 @@ function App() {
       convert: convertRef.current!.value,
     }
 
+    setLoading(true);
     const response = await convertCurrency(params);
     setConvertedValue(response.value);
-    setCurrencySymbol(response.symbol);
+    setLoading(false);
+
   }
 
   const currencies = [
@@ -72,17 +74,17 @@ function App() {
 
       <Header
         title='Currency Converter'
-        subtitle='Convert BRL to global currencies instantly' />
+        subtitle='Convert global currencies to BRL instantly' />
 
       <div className='container'>
 
         <ConverterCard>
           <form method="POST">
-            <Input ref={amountRef} label='AMOUNT (BRL)' type='number' />
-            <Select ref={convertRef} label='CONVERT TO' currencies={currencies} />
-            <Button handleClick={handleClick} title='Convert Currency' />
+            <Input ref={amountRef} label='AMOUNT' type='number' />
+            <Select ref={convertRef} label='CONVERT FROM' currencies={currencies} />
+            <Button handleClick={handleClick} title='Convert Currency' isLoading={loading} />
           </form>
-          <ResultCard value={convertedValue} currencySymbol={currencySymbol} />
+          <ResultCard value={convertedValue} currencySymbol={'R$'} />
         </ConverterCard>
 
       </div>
