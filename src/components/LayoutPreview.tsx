@@ -10,7 +10,6 @@ export function LayoutPreview({ children }: LayoutPreviewProps) {
         <div className='layout-preview
         rounded-2xl
         py-16
-        px-16
         relative
         min-h-96
         flex
