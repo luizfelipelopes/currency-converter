@@ -1,3 +1,4 @@
+import type { Ref } from "react";
 
 interface SelectOptions {
     value: string;
@@ -6,11 +7,13 @@ interface SelectOptions {
 
 interface SelectProps {
     label: string;
-    currencies: SelectOptions[];
+    currencies: SelectOptions[]
+    ref: Ref<HTMLSelectElement>;
 }
 
 
-export function Select({ label, currencies }: SelectProps) {
+export function Select({ label, currencies, ref }: SelectProps) {
+
     return (
         <div className='input-group mb-6'>
             <label className='input-label
@@ -29,7 +32,9 @@ export function Select({ label, currencies }: SelectProps) {
                 border-transparent
                 rounded-xl
                 cursor-pointer
-                text-lg'>
+                text-lg'
+                ref={ref}
+            >
 
                 {currencies
                     && currencies.map((currency, key) =>

@@ -1,10 +1,12 @@
+import type { MouseEventHandler } from "react";
+
 interface ButtonProps {
     title: string;
-
+    handleClick: MouseEventHandler<HTMLButtonElement>;
 }
 
 
-export function Button({ title }: ButtonProps) {
+export function Button({ title, handleClick }: ButtonProps) {
     return (
         <button className='convert-btn
             w-full
@@ -14,6 +16,8 @@ export function Button({ title }: ButtonProps) {
             text-white
             text-lg
             font-bold
-            cursor-pointer' type='submit'>{title}</button>
+            cursor-pointer' type='submit'
+
+            onClick={handleClick}>{title}</button>
     );
 }

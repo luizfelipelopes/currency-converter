@@ -1,9 +1,12 @@
+import type { Ref } from "react";
+
 interface InputProps {
     label: string;
     type: string;
+    ref: Ref<HTMLInputElement>;
 }
 
-export function Input({ label, type }: InputProps) {
+export function Input({ label, type, ref }: InputProps) {
     return (
         <div className='input-group mb-6'>
             <label className='input-label
@@ -22,7 +25,9 @@ export function Input({ label, type }: InputProps) {
                 border-transparent
                 rounded-xl
                 text-lg'
-                type={type} name='amount' />
+                ref={ref}
+                type={type}
+                name='amount' />
         </div>
     );
 }
